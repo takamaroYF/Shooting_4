@@ -34,6 +34,7 @@ void Update()
     // 弾の発射
     if (bulletPos.x <= -999 && Input::GetKeyDown(KeyMask::Space)) {
         bulletPos = cannonPos + Vector2(50, 10);
+        PlaySound("se_maoudamashii_system20.mp3"); //発射時のSEを追加（HW16A114 田中陽大）
     }
 
     // 弾の移動
