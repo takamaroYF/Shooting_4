@@ -37,8 +37,11 @@ void Update()
     }
 
     // 弾の移動
-    if (bulletPos.x > -999) {
-        bulletPos.x += 10 * Time::deltaTime;
+    if (bulletPos.x > -999) {       // 弾の速度とリロードの変更(HW16A115 田中雄登)
+        bulletPos.x += 70 * Time::deltaTime;
+        if (bulletPos.x > 320) {
+            bulletPos.x = -999;
+        }
 
         // ターゲットと弾の当たり判定
         Rect bulletRect(bulletPos, Vector2(32, 20));
