@@ -53,7 +53,15 @@ void Update()
     FillRect(Rect(-320, -240, 640, 100), Color::green);
 
     // 雲の描画
-    DrawImage("cloud1.png", cloudPos);
+    if (cloudPos.x < 320) {
+        cloudPos.x += 100 * Time::deltaTime;
+        DrawImage("cloud1.png", cloudPos);
+    }
+    if (cloudPos.x > 320) {
+        cloudPos.x = -320;
+        DrawImage("cloud1.png", cloudPos);
+    }
+//
 
     // 弾の描画
     if (bulletPos.x > -999) {
