@@ -68,7 +68,7 @@ void Update()
     FillRect(targetRect, Color::red);
 
     // スコアの描画
-    SetFont("nicoca_v1.ttf", 20.0f);
+    SetFont("nicoca_v1.ttf", 50.0f); //スコアのサイズを変更 （HW16A114 田中陽大）
     DrawText(FormatString("%02d", score), Vector2(-319, 199), Color::black);
     DrawText(FormatString("%02d", score), Vector2(-320, 200), Color::white);
 }
