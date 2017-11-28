@@ -16,7 +16,7 @@ Vector2 cannonPos;      //!< 砲台の位置
 Vector2 bulletPos;      //!< 弾の位置
 Rect    targetRect;     //!< ターゲットの矩形
 int     score;          //!< スコア
-
+bool    flag = true;    //!< 砲台の位置判定
 
 // ゲーム開始時に呼ばれる関数です。
 void Start()
@@ -62,6 +62,18 @@ void Update()
 
     // 砲台の描画
     FillRect(Rect(cannonPos.x-10, -140, 20, 100), Color::blue);
+    if (cannonPos.y <= -140){       // 砲台の位置が壁に沿って移動するように変更(HW16A115 田中雄登)
+        flag = true;
+    }
+    if (cannonPos.y >= -70) {
+        flag = false;
+    }
+    if (flag == true) {
+        cannonPos.y += 3;
+    }else{
+        cannonPos.y -= 3;
+    }
+
     DrawImage("cannon.png", cannonPos);
 
     // ターゲットの描画
